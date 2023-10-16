@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles-infoComedores.css">
+        <title>DIF Atizapán - InfoComedores</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" defer></script>-->
+        <script type="text/javascript" src="js/comedores/infoComedores.js" defer></script>
+        <script type="text/javascript" src="js/comedores/tablaEncargados.js" defer></script>
+        <script type="text/javascript" src="js/comedores/tablaUsuarios.js" defer></script>
+        
+        <script type="text/javascript" src="js/hora.js" defer></script>
+        <script type="text/javascript" src="js/comedores/ventasDonacionesComedorGraph.js" defer></script>
+        <script type="text/javascript" src="js/comedores/editarInfoComedor.js" defer></script>
+        <script type="text/javascript" src="js/comedores/editarInfoEncargados.js" defer></script>
+        <script type="text/javascript" src="js/comedores/agregarEncargado.js" defer></script>
+        <script type="text/javascript" src="js/comedores/reportePDF.js" defer></script>
+        <script type="text/javascript" src="js/comedores/jspdf.min.js" defer></script>
+        <script src= "js/main/main.js" defer></script>
+        <script src= "js/comedores/tablainventario.js" defer></script>
+        <script src= "js/comedores/tablaComentarios.js" defer></script>
+        <script src= "js/comedores/encuestaPromedio.js" defer></script>
+        <script src="js/logout.js" defer></script>
+    
+    </head>
+    <body>
+        
+        <div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <img id="LogoDIF" src="img/DIF-Atizapan.jpg" alt="Logo DIF">
+                    <span id="TxtDIF">DIF Atizapán</span>
+                </div>
+                <i class="bx bx-menu" id="btn"></i>
+            </div>
+            <div class="user">
+                <img src="img/bxs-user-circle.svg" alt="UserIcon" class="user-icon">
+                <div>
+                    <p id="adminName" class="bold">Nombre de Usuario</p>
+                    <p id ="adminMail">Correo de Usuario</p>
+                    <p>Admin</p>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="/main.html">
+                        <i class="bx bxs-home"></i>
+                        <span class="nav-item">Inicio</span>
+                    </a>
+                    <span class="tooltip">Inicio</span>
+                </li>
+                <li>
+                    <a href="/comedores.html">
+                        <i class="bx bxs-bowl-hot"></i>
+                        <span class="nav-item">Comedores</span>
+                    </a>
+                    <span class="tooltip">Comedores</span>
+                </li>
+                <li>
+                    <a href="/anuncios.html">
+                        <i class="bx bxs-megaphone"></i>
+                        <span class="nav-item">Anuncios</span>
+                    </a>
+                    <span class="tooltip">Anuncios</span>
+                </li>
+                <li>
+                    <a href="#" id="logoutLink">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                    <span class="tooltip">Logout</span>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="main-content">
+            <header>
+            <div class="left"><h2 id="Comedor"></h2></div>
+            <div class="right" style="font-size: 20px;">
+                <button type="submit" class="descargarReporte" id="reportePDF"> Reporte PDF </button>
+            </div>
+            </header>
+    
+            <main class="bodyMain">
+                <section class="square-container">
+                    
+                    
+                    <!-- Tabla para mostrar los datos -->
+                    <table id="tablaVentasDonaciones" class="tabla-ventas-donaciones">
+                        
+                      </table>
+                    <canvas class="graficaVentasDonaciones" id="graficaVentasDonaciones" width="350" height="100"></canvas>
+                </section>
+                
+                <section class="containerTableCliente">
+                    <h1>Usuarios que han asistido al comedor: <span></span></h1>
+                    <table class="TableClientes">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Edad</th>
+                                <th>Género</th>
+                                <th>CURP</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaUsuarios">
+
+                        </tbody>
+                    </table>
+
+                </section>
+                
+                <section class="containerInfoInventario">
+                    <div class="textoBtnInfoInventario">
+                            <h1>Inventario del Comedor</h1>
+                            <button class="botonAdministrarInventario"><a href="inventario.html" target="_blank">Administrar Inventario</a></button>
+                    </div>
+                    <table class="InventarioTableAdmin">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Unidad de Medida</th>
+                            </tr>
+                        </thead>
+                        <tbody id="TBodyInventario">
+                            
+                        </tbody>
+                    </table>
+
+                </section>
+                
+                <section class="containerEvaluacion">
+                    <h1>Calificación del Comedor</h1>
+                    
+                    <div class="encuestasRespondidas">
+                    
+                    <p class="parrafoEncuestasRespondidas">La encuesta ha sido respondida por: <span class="TotalEncuestasRespondidas">0</span> personas</p>
+                    </div>
+                    
+                    <div class="containerHigiene">
+                        <h1>Higiene</h1>
+                        <div class="progress-bar-higiene">
+                            <div class="fill-higiene"><span class="text-higiene">0%</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="containerAtencion">
+                        <h1>Atención</h1>
+                        <div class="progress-bar-atencion">
+                            <div class="fill-atencion"><span class="text-atencion">0%</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="containerComida">
+                        <h1>Comida</h1>
+                        <div class="progress-bar-comida">
+                            <div class="fill-comida"><span class="text-comida">0%</span></div>
+                        </div>
+                    </div>
+                    
+                </section>
+                
+                <section class="containerComentariosForm">
+                    <div class="comentarios">
+                        <table class="tableComentariosForm">
+                            <tr>
+                                <th>Comentarios</th>
+                            </tr>
+                            <tbody id="TBodyComentario">
+                            
+                            </tbody>
+                        </table>
+
+                    </div>
+                </section>
+                
+                <div class="containerAddEncargado" id="containerAddEncargado">
+                    <input type="text" name="Nombre" class="inputNombreEncargado" placeholder="Nombre" id="inputNombreEncargado" />
+                    <input type="email" name="Correo" class="inputCorreoEncargado" placeholder="Correo" id="inputCorreoEncargado" />
+                    <input type="text" name="Contraseña" class="inputContraseñaEncargado" placeholder="Contraseña" id="inputContraseñaEncargado" />
+                    
+                    <div class="containerbtnAgregarEncargado">
+                        <button type="button" class="boton-cancelarEncargado" id="btnCancelarEncargado1">Cancelar</button>
+                        
+                        <button type="submit" class="boton-agregarEncargado" id="btnAgregarEncargado1">Agregar Encargado</button>
+                    </div>
+                </div>
+                
+                <div class="containerSection" id="SectionInfo">
+                    <section class="containerEncargados" id="containerEncargados">
+                        <h2>Encargados</h2>
+                        <button type="button" class="boton-agregarEncargados" id="btnAddEncargados">Agregar Encargado</button>
+                        <table id="tablaEncargados" class="tableInfoEncargado">
+                            <thead>
+                                <tr class="tableHeader">
+                                    <th>Nombre</th>
+                                    <th>Teléfono</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaEncargadosBody">
+                                
+                            </tbody>
+                        </table>
+                        
+                        <button type="button" class="boton-editarEncargados" id="btnEditEncargados">Editar Encargados</button>
+                        
+                        <button type="button" class="boton-agregarEncargados" id="btnAddEncargados">Agregar Encargados</button>
+                        
+                        <div class="containerbtnAgregarComedor">
+                            <button type="button" class="boton-cancelarEncargados" id="btnCancelarEncargados">Cancelar</button>
+                            
+                            <button type="submit" class="boton-submitEncargados" id="btnEnviarEncargados">Enviar</button>
+                        </div>
+                    </section>
+                    <section class="containerInfo" id="containerInfoCom">
+                        <h2>Información Comedor</h2>
+                        <div class="containerBtnEdit">
+                            <div id="containerEditarComedor" class="containerInfoComedor">
+                                <input type="text" name="Comedor" class="inputComedor" placeholder="Comedor" id="inputComedor"  readonly />
+                                <br />
+                                <input type="text" name="Direccion" class="inputDireccion" placeholder="Dirección" id="inputDireccion"  readonly />
+                                <br />
+                                <input type="tel" name="Teléfono" class="inputTelefono" placeholder="Teléfono" id="inputTelefono"  readonly />
+                                <br />
+                                <select class="inputEstatusComedor" name="estatusComedor" id="estatusComedor" disabled>
+                                    <option value="Abierto">Abierto</option>
+                                    <option value="Cerrado">Cerrado</option>
+                                </select>
+                                <br />
+                            </div>
+                            <button type="button" class="boton-editar" id="btnEdit">Editar Comedor</button>
+                        </div>
+                            <div class="containerbtnAgregarComedor">
+                                <button type="button" class="boton-cancelar" id="btnCancelar">Cancelar</button>
+                                
+                                <button type="submit" class="boton-submit" id="btnEnviar">Enviar</button>
+                            </div>
+                    </section>
+                </div>
+                <div class="containerBtnDelete">
+                    <button type="button" class="boton-delete" id="btnDelete">Eliminar Comedor</button>
+                </div>
+            </main>
+        </div>
+    
+    </body>
+    
+
+    <script>    
+        let btn = document.querySelector('#btn')
+        let sidebar = document.querySelector('.sidebar')
+    
+        btn.onclick = function() {
+            sidebar.classList.toggle('active')
+        };
+    
+    </script>
+    
+</html>

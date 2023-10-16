@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#LogoDIF{
+    width: 40px;
+    height: auto;
+    border-radius: 40%;
+    border: 1px solid #7a7a7a7a;
+}
+#TxtDIF{
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+.user-icon{
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80px;
+    background-color: #D09C90;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5 s ease;
+    margin-bottom: 0;
+}
+
+.sidebar.active ~ .main-content{
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active{
+    width: 250px;
+}
+
+.sidebar #btn {
+    position: absolute;
+    top: 0.4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sidebar.active #btn {
+    left: 90%;
+    top: 0.9%;
+}
+
+.sidebar .top .logo {
+    color: black;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0%;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.sidebar.active .user {
+    padding-top: 42px;
+    padding-bottom: 42px;
+}
+
+
+.user p {
+    color: black;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: black;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.tooltip {
+    color: #000000;
+}
+
+.sidebar ul li a:hover {
+    background-color: black;
+    color: #D09C90;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    background-color: #D09C90;
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip {
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.main-content {
+    background-color: #F5DEB3;
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+}
+
+/* Estilos para el header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #B9B8D3;
+    color: black;
+    padding: 20px;
+}
+.left {
+    flex: 1;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.right {
+    flex: 1;
+    text-align: right;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Estilos del Body Main */
+
+.bodyMain {
+    padding: 20px;
+    justify-content: center;
+}
+
+.square-container {
+    margin: 20px;
+    background-color: #B9B8D3;
+    text-align: center;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    height: 600px; /* Define la altura máxima del contenedor antes de que aparezca el scrollbar */
+    overflow: auto; /* Agrega un scrollbar vertical cuando sea necesario */
+    border: 1px solid #ccc;
+}
+
+.square-container h3 {
+    margin-top: 10px;
+}
+
+.anuncios-container {
+    height: 600px;
+    display: block;
+    overflow: auto;
+    text-align: center;
+}
+
+.anuncios-container table {
+    margin: 0px auto;
+    width: 95%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.anuncios-container thead th {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+/* Estilos para las celdas de datos */
+.anuncios-container td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+/* Estilos para las celdas de estado */
+.anuncios-container td.estado {
+  font-weight: bold;
+  color: green; /* Puedes cambiar el color según tus necesidades */
+}
+
+/* Estilos para hover sobre las filas */
+.anuncios-container tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+.option_status {
+    width: 100px;
+    margin: 0;
+}
+
+.botonEditarTableAnuncios {
+    padding: 10px 20px;
+    background-color: #F5DEB3; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 20px;
+    width: 200px;
+    color: black;
+    margin: 20px 10px;
+}
+
+.botonEditarTableAnuncios:hover {
+    background-color: #E1D7AB; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.containerbtnEditarAnuncios {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boton-submitEditAnuncio {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    width: 120px;
+    display: none;
+}
+
+.boton-submitEditAnuncio:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-cancelarEditAnuncio {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #FF5733; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    width: 100px;
+    display: none;
+}
+
+.boton-cancelarEditAnuncio:hover {
+    background-color: #D63222; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-submitEncargados {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    float: right;
+    width: 100px;
+    display: none;
+}
+
+.agregar-anuncio {
+    display: block;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-agregarAnuncio {
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    padding: 10px 20px;
+    background-color: #D09C90; /* Color de fondo del botón */
+    color: #000; /* Color del texto del botón */
+    border: none; /* Quita el borde */
+    border-radius: 5px; /* Añade bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón sobre el botón */
+    transition: transform 0.3s;
+    margin-left: 20px;
+}
+
+.boton-agregarAnuncio:hover {
+    background-color: #D8BAA6; /* Cambia el color de fondo al pasar el cursor */
+    transform: scale(1.1);
+}
+
+.containerAgregarAnuncio {
+    width: 100%;
+    height: 100%;
+    background-color: #B9B8D3;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    overflow: auto;
+    display: none;
+}
+
+.containerAgregarAnuncio input, select {
+    width: 250px;
+    margin: 0px 30px;
+    background-color: rgba(242, 242, 242, 0.5);
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+    height: 30px;
+}
+
+.containerAgregarAnuncio input::placeholder {
+    color: #666666;
+}
+
+.containerAgregarAnuncio input:focus {
+    border: 3px solid #000000; /* Agrega un borde de 2px sólido azul cuando el campo está enfocado */
+    background-color: #f9f9f9; /* Cambia el color de fondo cuando el campo está enfocado */
+}
+
+.containerAgregarAnuncio select::placeholder {
+    color: #666666;
+}
+
+.containerAgregarAnuncio select:focus {
+    border: 3px solid #000000; /* Agrega un borde de 2px sólido azul cuando el campo está enfocado */
+    background-color: #f9f9f9; /* Cambia el color de fondo cuando el campo está enfocado */
+}
+
+.containerbtnAgregarAnuncio {
+    display: flex;
+    text-align: center; /* Alinea el texto al centro */
+    justify-content: space-between;
+}
+
+.boton-cancelar {
+    padding: 10px 20px;
+    background-color: #FF5733; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 20px;
+    float: left;
+    width: 100px;
+}
+
+.boton-cancelar:hover {
+    background-color: #D63222; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-submit {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 20px;
+    float: right;
+    width: 100px;
+}
+
+.boton-submit:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el cursor */
+}
+
+
+/* PANTALLLA DE DISPOSITIVO MOVIL */
+
+@media(max-width: 900px) {
+        * {
+        font-size: small;
+    }
+    
+    .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0; /* Inicialmente oculto fuera de la pantalla */
+    height: 100%;
+    width: 80px;
+    background-color: #D09C90;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s ease;
+    z-index: 9999; /* Asegura que el sidebar esté sobre el contenido */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+    }
+    
+    .main-content {
+        display: block;
+        z-index: 0;
+        position: relative;
+    
+    }
+    
+    .left h2 {
+        font-size: 20px;
+    }
+    
+    .bodyMain {
+        padding: 20px 0px;
+        display: block;
+    }
+    
+    .square-container {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .anuncios-container {
+        overflow: auto;
+        height: 400px;
+        width: 100%;
+        
+    }
+    
+    .containerAgregarAnuncio {
+        width: 100%;
+        overflow: auto;
+    }
+    
+    .containerAgregarAnuncio input {
+        margin: 10px 0px;
+    }
+    
+    .containerAgregarAnuncio select {
+        margin: 10px 0px;
+    }
+    
+    .agregar-anuncio {
+        margin: 10px auto;
+        padding: 0;
+    }
+    
+    .boton-agregarAnuncio {
+        margin: 0;
+    }
+}
+
+

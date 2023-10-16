@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control de Inventario</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    
+    <!-- Enlace a hoja de estilos CSS -->
+    <link rel="stylesheet" href="css/styles-inventario.css">
+    
+    <!-- Enlace a jQuery y Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script type="text/javascript" src="js/inventario/url.js" defer></script>
+    <script type="text/javascript" src="js/inventario/inventario.js" defer></script>
+    
+    
+    
+  </head>
+  <body>
+    <div class="container mt-3">
+        <h2 class="text-center">Control de Inventario de <span id="nombreComedor" class="nombreCommedor"></span></h2>
+        <form id="formInventario">
+            <div class="form-group">
+                <label for="producto">Producto:</label>
+                <select class="form-control" id="producto" required>
+                    <option value="">Seleccione un producto</option>
+                    <option value="ACEITE VEGETAL">ACEITE VEGETAL</option>
+                    <option value="ARROZ SUPER EXTRA">ARROZ SUPER EXTRA</option>
+                    <option value="ATUN EN AGUA">ATUN EN AGUA</option>
+                    <option value="AZUCAR ESTANDAR">AZUCAR ESTANDAR</option>
+                    <option value="CAFE MOLIDO">CAFE MOLIDO</option>
+                    <option value="CHICHAROS Y ZANAHORIAS">CHICHAROS Y ZANAHORIAS </option>
+                    <option value="CHILE CHIPOTLE ADOBADO">CHILE CHIPOTLE ADOBADO</option>
+                    <option value="CHILE GUAJILLO">CHILE GUAJILLO</option>
+                    <option value="CHILE JALAPEÑO EN RAJAS">CHILE JALAPEÑO EN RAJAS</option>
+                    <option value="CONCENTRADO PARA AGUA DE SABOR">CONCENTRADO PARA AGUA DE SABOR</option>
+                    <option value="CONSOME DE POLLO">CONSOME DE POLLO</option>
+                    <option value="ELOTE EN LATA">ELOTE EN LATA</option>
+                    <option value="FRIJOL REFRITO">FRIJOL REFRITO</option>
+                    <option value="GALLETAS SALADAS">GALLETAS SALADAS</option>
+                    <option value="HARINA DE MAIZ">HARINA DE MAIZ (10 Kg)</option>
+                    <option value="HUEVO">HUEVO</option>
+                    <option value="LECHE SEMIDESCREMADA DESLACTOSADA">LECHE SEMIDESCREMADA DESLACTOSADA</option>
+                    <option value="LENTEJA">LENTEJA</option>
+                    <option value="ADEREZO MAYONESA">ADEREZO MAYONESA</option>
+                    <option value="PASTA PARA SOPA CORTA">PASTA PARA SOPA CORTA</option>
+                    <option value="PASTA TIPO SPAGUETTI">PASTA TIPO SPAGUETTI </option>
+                    <option value="SAL">SAL</option>
+                    <option value="SARDINA EN TOMATE">SARDINA EN TOMATE</option>
+                    <option value="GARBANZO">GARBANZO</option>
+                    <option value="PURE DE TOMATE">PURE DE TOMATE</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad:</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="cantidad"
+                            placeholder="Ingrese la cantidad"
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="form-group">
+                        <label for="unidadMedida">Unidad de Medida:</label>
+                        <select class="form-select form-control" id="unidadMedida">
+                            <option value="">Seleccione una unidad de medida</option>
+                            <option value="Pieza(s)">Pieza(s)</option>
+                            <option value="Paquete(s)">Paquete(s)</option>
+                            <option value="Kg">Kilogramo (Kg)</option>
+                            <option value="Lt">Litro (Lt)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-custom">
+                Agregar al Inventario
+            </button>
+        </form>
+        <hr />
+        <div class="row">
+            <div class="col-12">
+                <h3>Listado de Inventario</h3>
+                <div class="table-responsive">
+                    <table class="table table-custom">
+                        <thead class="table-dark table-border-top table-border-bottom">
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Unidad de Medida</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaInventario">
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+  </body>
+</html>

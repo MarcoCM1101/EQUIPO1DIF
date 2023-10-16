@@ -1,0 +1,908 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#LogoDIF{
+    width: 40px;
+    height: auto;
+    border-radius: 40%;
+    border: 1px solid #7a7a7a7a;
+}
+#TxtDIF{
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+.user-icon{
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80px;
+    background-color: #D09C90;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5 s ease;
+    margin-bottom: 0;
+}
+
+.sidebar.active ~ .main-content{
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active{
+    width: 250px;
+}
+
+.sidebar #btn {
+    position: absolute;
+    top: 0.4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sidebar.active #btn {
+    left: 90%;
+    top: 0.9%;
+}
+
+.sidebar .top .logo {
+    color: black;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0%;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.sidebar.active .user {
+    padding-top: 42px;
+    padding-bottom: 42px;
+}
+
+
+.user p {
+    color: black;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: black;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.tooltip {
+    color: #000000;
+}
+
+.sidebar ul li a:hover {
+    background-color: black;
+    color: #D09C90;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    background-color: #D09C90;
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip {
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.main-content {
+    background-color: #F5DEB3;
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+}
+
+/* Estilos para el header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #B9B8D3;
+    color: black;
+    padding: 20px;
+}
+.left {
+    flex: 1;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.right {
+    flex: 1;
+    text-align: right;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.descargarReporte {
+    background-color: #F5DEB3;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 25px;
+    transition: transform 0.3s;
+}
+
+.descargarReporte:hover {
+    background-color: #E1D7AB;
+    transform: scale(1.1); /* Aumentar la escala al 120% del tamaño original */
+    cursor: pointer; /* Cambiar el cursor a una mano para indicar interacción */
+}
+
+/* Estilos del Body Main */
+
+.bodyMain {
+    text-align: center;
+    padding: 20px;
+    display: block;
+}
+
+.square-container {
+    text-align-last: center;
+    background-color: #B9B8D3;
+    width: 100%;
+    height: 350px;
+    padding: 0px 40px;
+}
+
+/* Estilos para la tabla */
+.tabla-ventas-donaciones {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tabla-ventas-donaciones th, .tabla-ventas-donaciones td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+}
+
+.tabla-ventas-donaciones th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.tabla-ventas-donaciones tr:hover {
+    background-color: #ddd;
+}
+
+
+.containerAddEncargado {
+    display: none;
+    width: 100%;
+    height: 200px;
+    margin-top: 30px;
+    background-color: #B9B8D3;
+}
+
+.containerAddEncargado input {
+    width: 200px;
+    margin: 0px 30px;
+    background-color: rgba(242, 242, 242, 0.5);
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+    height: 30px;
+    margin-top: 20px;
+}
+
+.containerAddEncargado input::placeholder {
+    color: #666666;
+}
+
+.containerAddEncargado input:focus {
+    border: 3px solid #000000; /* Agrega un borde de 2px sólido azul cuando el campo está enfocado */
+    background-color: #f9f9f9; /* Cambia el color de fondo cuando el campo está enfocado */
+}
+
+.boton-cancelarEncargado {
+    padding: 10px 20px;
+    background-color: #FF5733; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 30px;
+    float: left;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.boton-cancelar:hover {
+    background-color: #D63222; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-agregarEncargado {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 30px;
+    float: right;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.boton-agregarEncargado:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.containerTableCliente {
+    margin-top: 30px;
+    text-align-last: center;
+    background-color: #B9B8D3;
+    width: 100%;
+    height: 350px;
+    padding: 20px 40px;
+    overflow: auto;
+}
+
+.containerTableCliente h1 {
+    color: black;
+    margin: 20px;
+}
+
+.TableClientes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.TableClientes th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.TableClientes td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.TableClientes tr:hover {
+    background-color: rgba(248, 248, 248, 0.5);
+}
+
+.containerSection {
+    display: flex;
+    justify-content: space-around;
+}
+
+.containerEncargados {
+    margin-top: 40px;
+    background-color: #B9B8D3; 
+    width: 600px;
+    height: 400px;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    display: block;
+    padding: 30px;
+}
+
+.tableInfoEncargado {
+    border-collapse: collapse;
+    width: 100%;
+    overflow: auto;
+    width: 90%;
+    margin: 20px 25px;
+}
+
+.tableHeader {
+    background-color: #f2f2f2;
+}
+
+.tableInfoEncargado th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.tableInfoEncargado td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+}
+
+.tableInfoEncargado tr:hover {
+    background-color: rgba(248, 248, 248, 0.5);
+}
+
+.containerInfo {
+    margin-top: 40px;
+    background-color: #B9B8D3; 
+    width: 600px;
+    height: 400px;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+}
+
+.containerBtnEdit {
+    display: block;
+    justify-content: center;
+}
+
+.boton-editarEncargados {
+    padding: 10px 20px;
+    background-color: #F5DEB3; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 20px;
+    width: 200px;
+    color: black;
+    margin: 20px 10px;
+}
+
+.boton-editarEncargados:hover {
+    background-color: #E1D7AB; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-agregarEncargados {
+    padding: 10px 20px;
+    background-color: #F5DEB3; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 20px;
+    width: 200px;
+    color: black;
+    margin: 20px 10px;
+    margin-left: 25px;
+    display: none;
+}
+
+.boton-agregarEncargados:hover {
+    background-color: #E1D7AB; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-cancelarEncargados {
+    padding: 10px 20px;
+    background-color: #FF5733; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    float: left;
+    width: 100px;
+    display: none;
+}
+
+.boton-cancelarEncargados:hover {
+    background-color: #D63222; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-submitEncargados {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    float: right;
+    width: 100px;
+    display: none;
+}
+
+.boton-submitEncargados:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el cursor */
+}
+
+
+.containerInfoComedor {
+    display: block;
+}
+
+.containerInfoComedor input {
+    width: 250px;
+    margin: 0px 30px;
+    background-color: rgba(242, 242, 242, 0.5);
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+    height: 30px;
+    margin: 15px 20px;
+}
+
+.inputEstatusComedor {
+    width: 250px;
+    background-color: rgba(242, 242, 242, 0.5);
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+    height: 30px;
+    margin: 15px 20px;
+}
+
+.boton-editar {
+    padding: 10px 20px;
+    background-color: #F5DEB3; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 20px;
+    width: 200px;
+    color: black;
+    margin: 20px 10px;
+}
+
+.boton-editar:hover {
+    background-color: #E1D7AB; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-cancelar {
+    padding: 10px 20px;
+    background-color: #FF5733; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin: 10px 10px;
+    float: left;
+    width: 100px;
+    display: none;
+}
+
+.boton-cancelar:hover {
+    background-color: #D63222; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.boton-submit {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin: 10px 10px;
+    float: right;
+    width: 100px;
+    display: none;
+}
+
+.boton-submit:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.containerBtnDelete {
+    display: flex;
+    justify-content: center;
+}
+
+.boton-delete {
+    padding: 10px 20px;
+    background-color: #FF5733; /* Color rojo */
+    color: #fff; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor al pasar el ratón */
+    margin-top: 100px;
+    width: 200px;
+}
+
+.boton-delete:hover {
+    background-color: #D63222; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.containerInfoInventario {
+    margin-top: 30px;
+    text-align-last: center;
+    background-color: #B9B8D3;
+    width: 100%;
+    height: 350px;
+    padding: 20px 40px;
+    overflow: auto;
+}
+
+.containerInfoInventario h1 {
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.InventarioTableAdmin {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.InventarioTableAdmin th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.InventarioTableAdmin td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.InventarioTableAdmin tr:hover {
+    background-color: rgba(248, 248, 248, 0.5);
+}
+
+.containerSection {
+    display: flex;
+    justify-content: space-around;
+}
+
+.containerEvaluacion {
+    margin-top: 30px;
+    text-align-last: center;
+    background-color: #B9B8D3;
+    width: 100%;
+    height: 350px;
+    padding: 20px 40px;
+    overflow: auto;
+}
+
+.containerEvaluacion h1 {
+    margin: 10px;
+}
+
+.encuestasRespondidas {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.parrafoEncuestasRespondidas {
+    padding: 10px;
+    border: 2px, solid, #efefef;
+    background-color: #efefef;
+    border-radius: 10px;
+}
+
+.containerHigiene h1 {
+    margin: 20px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-higiene {
+    width: 100%; /* Ajusta el ancho de la barra de progreso */
+    height: 20px; /* Ajusta la altura de la barra de progreso */
+    background-color: #ccc; /* Color de fondo de la barra de progreso */
+    margin: 0 auto;
+}
+
+.fill-higiene {
+    width: 0%;
+    height: 100%;
+    background-color: #D09C90;
+}
+
+.text-higiene {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.containerAtencion h1 {
+    margin: 20px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-atencion {
+    width: 100%; /* Ajusta el ancho de la barra de progreso */
+    height: 20px; /* Ajusta la altura de la barra de progreso */
+    background-color: #ccc; /* Color de fondo de la barra de progreso */
+    margin: 0 auto;
+}
+
+.fill-atencion {
+    width: 0%;
+    height: 100%;
+    background-color: #D09C90;
+}
+
+.text-atencion {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.containerComida h1 {
+    margin: 20px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-comida {
+    width: 100%; /* Ajusta el ancho de la barra de progreso */
+    height: 20px; /* Ajusta la altura de la barra de progreso */
+    background-color: #ccc; /* Color de fondo de la barra de progreso */
+    margin: 0 auto;
+}
+
+.fill-comida {
+    width: 0%;
+    height: 100%;
+    background-color: #D09C90;
+}
+
+.text-comida {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.containerComentariosForm {
+    margin-top: 30px;
+    text-align-last: center;
+    background-color: #B9B8D3;
+    width: 100%;
+    height: 350px;
+    padding: 20px 40px;
+    overflow: auto;
+}
+
+.tableComentariosForm {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tableComentariosForm th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.tableComentariosForm td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.tableComentariosForm tr:hover {
+    background-color: rgba(248, 248, 248, 0.5);
+}
+
+.textoBtnInfoInventario {
+    display: flex;
+    justify-content: space-between;
+}
+
+.botonAdministrarInventario {
+    background-color: #F5DEB3; /* Color de fondo del botón */
+    color: black; /* Color del texto */
+    margin: 5px;
+    padding: 5px 10px;
+    border: 10px; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    height: 50px;
+}
+
+.botonAdministrarInventario a{
+    text-decoration: none;
+    color:black;
+}
+
+.botonAdministrarInventario:hover {
+    background-color: #E1D7AB; /* Color de fondo al pasar el cursor por encima */
+}
+
+@media(max-width: 900px) {
+        * {
+        font-size: small;
+    }
+    
+    .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0; /* Inicialmente oculto fuera de la pantalla */
+    height: 100%;
+    width: 80px;
+    background-color: #D09C90;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s ease;
+    z-index: 9999; /* Asegura que el sidebar esté sobre el contenido */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+    }
+    
+    header {
+        margin: 20px 20px;
+    }
+    
+    .main-content {
+        display: block;
+        z-index: 0;
+        position: relative;
+        padding: 20px 0px;
+    
+    }
+    
+    .descargarReporte {
+        width: 90px;
+        height: auto;
+    }
+    
+    .left h2 {
+        font-size: 15px;
+    }
+    
+    .bodyMain {
+     display: block;
+     width: 100%;
+    }
+    
+    .square-container {
+        overflow: auto;
+        padding: 10px;
+    }
+    
+    .graficaVentasDonaciones {
+        width: 200px;
+        height: 50px;
+    }
+    
+    .containerSection {
+        display: block;
+        width: 100%;
+    }
+    
+    .containerEncargados {
+        width: 100%;
+        overflow: auto;
+    }
+    
+    .containerEncargados table {
+        width: 300px;
+    }
+    
+    .containerAddEncargado {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .containerbtnAgregarEncargado {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    .boton-cancelarEncargado {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+    
+    .boton-agregarEncargado {
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    
+    .containerAddEncargado input {
+        margin: 20px 20px;
+        width: 200px;
+    }
+    
+    .containerInfo {
+        margin-right: 0px;
+        width: 100%;
+        overflow: auto;
+    }
+    
+    .textoBtnInfoInventario {
+    display: block;
+    }
+    
+    .botonAdministrarInventario {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}

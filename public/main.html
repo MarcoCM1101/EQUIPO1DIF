@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles-main.css">
+    <title>Dashboard DIF</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src= "js/main/main.js" defer></script>
+    <script src= "js/sidebar.js" defer></script>
+    <script src= "js/hora.js" defer></script>
+    <script src= "js/main/mainGrafPasVen.js" defer></script>
+    <script src= "js/main/mainGrafPasComActivIna.js" defer></script>
+    <script src="js/main/usuarioHoy.js" defer></script>
+    <script src="js/main/ingresosTotales.js" defer></script>
+    <script src="js/main/tablaComedor.js" defer></script>
+    <script src="js/main/anuncios.js" defer></script>
+    <script src="js/logout.js" defer></script>
+    
+</head>
+<body>
+    
+    <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <img id="LogoDIF" src="img/DIF-Atizapan.jpg" alt="Logo DIF">
+                <span id="TxtDIF">DIF Estado de México</span>
+            </div>
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <div class="user">
+            <img src="img/bxs-user-circle.svg" alt="UserIcon" class="user-icon">
+            <div>
+                <p id="adminName" class="bold">Nombre de Usuario</p>
+                <p id ="adminMail">Correo de Usuario</p>
+                <p>Admin</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href="main.html">
+                    <i class="bx bxs-home"></i>
+                    <span class="nav-item">Inicio</span>
+                </a>
+                <span class="tooltip">Inicio</span>
+            </li>
+            <li>
+                <a href="comedores.html">
+                    <i class="bx bxs-bowl-hot"></i>
+                    <span class="nav-item">Comedores</span>
+                </a>
+                <span class="tooltip">Comedores</span>
+            </li>
+            <li>
+                <a href="anuncios.html">
+                    <i class="bx bxs-megaphone"></i>
+                    <span class="nav-item">Anuncios</span>
+                </a>
+                <span class="tooltip">Anuncios</span>
+            </li>
+            <li>
+                <a href="#" id="logoutLink">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+        <div class="left"><h2>Comedores Comunitarios</h2></div>
+        <div class="right" id="time" style="font-size: 20px;"></div>
+        </header>
+
+        <main class="bodyMain">
+            <div class="square-container">
+                <div class="square">
+                    <div class="TextoSquare1">
+                        <i class="bx bx-fork"></i> <i class="bx bx-group"></i> <i class="bx bx-group"></i> <i class="bx bx-group"></i> <i class="bx bx-group"></i> <i class="bx bx-knife"></i>
+                        <p>Total de personas que asistieron a los comedores el día de hoy:</p>
+                        <br>
+                        <p><h1 id="cantidadPersonas" class="cantidadPersonas"></h1></p>
+                        <br>
+                        <i class="bx bx-fork"></i> <i class="bx bx-group"></i> <i class="bx bx-group"></i> <i class="bx bx-group"></i> <i class="bx bx-group"></i> <i class="bx bx-knife"></i>
+                    </div>
+                </div>
+                <div class="square">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Total de Ventas y Donaciones</h3>
+                    <br>
+                    <div class="container" style="text-align: center;">
+                        <canvas id="pieChart" style="max-width: 100%; max-height: min(100vh, 150px);" width="100" height="100"></canvas>
+                    </div>                    
+                </div>
+                <div class="square">
+                    <i class="fas fa-calendar"></i>
+                    <h3>Ingresos Totales</h3>
+                    <br>
+                    <br>
+                    <h2>$ <span id="ingresoTotales" class="GananciaTotal"></span></h2>
+                    <br>
+                    <i class='bx bxs-badge-dollar' style="font-size: 80px; color: #008000"></i>
+                </div>
+                <div class="square">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Comedores Activos e Inactivos</h3>
+                    <br>
+                    <div class="container-2" style="text-align: center;">
+                        <canvas id="pieChart-2" style="max-width: 100%; max-height: min(100vh, 150px);" width="100" height="100"></canvas>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="square-container-2" style="width: 100%; height: 100%">
+                    <div class="square-2-anuncios">
+                        <h3>ANUNCIOS PUBLICADOS</h3>
+                        <br>
+                        <div class="anuncios-container">
+                            <table class="TablaAnuncios">
+                                <thead>
+                                    <tr>
+                                        <th>Título</th>
+                                        <th>Descripción</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbodyAnuncios">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <div class="square-2-comedores">
+                    <h3>TOP 5 COMEDORES CON MÁS VENTAS Y DONACIONES</h3>
+                    <br>
+                    <div class="table-container">
+                        <table id="TablaComedoresMain">
+                            <thead>
+                                <tr>
+                                    <th>Comedor</th>
+                                    <th>Ventas</th>
+                                    <th>Donaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+
+</html>
