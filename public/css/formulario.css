@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Encabezado {
+    background-color: #D09C90;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+body {
+    font-size: 40px;
+}
+
+.contenedorTextoCalif {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contenedorTextoCalif p {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #efefef;
+    font-size: 20px;
+    transform: scale(1.5);
+}
+
+.titulo {
+    color: white;
+}
+
+.EligeComedor {
+    transform: scaleY(1.5);
+}
+
+.form-group {
+    color: white;
+    font-size: 60px; /* Ajusta el tamaño del texto */
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+    display: none; /* Oculta los radio buttons nativos */
+}
+
+/* Estilo de los botones de radio personalizados */
+.custom-radio-label {
+    display: inline-block;
+    width: 100px; /* Ajusta el ancho del botón personalizado */
+    height: 100px; /* Ajusta el alto del botón personalizado */
+    background-color: #007BFF; /* Color del botón no seleccionado */
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px; /* Centra el contenido verticalmente */
+    margin-right: 10px; /* Espacio entre los botones */
+    cursor: pointer;
+    font-size: 40px; /* Ajusta el tamaño del número */
+    color: white; /* Color del número */
+}
+
+.custom-radio-label:hover {
+    background-color: #D09C90; /* Color al pasar el cursor sobre el botón */
+}
+
+/* Estilo de los botones seleccionados */
+.form-check-input:checked + .custom-radio-label {
+    background-color: #D09C90; /* Color del botón seleccionado */
+}
+
+.custom-button {
+    height: auto;
+    width: 500px;
+}

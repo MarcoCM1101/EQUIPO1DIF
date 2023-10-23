@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>InformeComedoresComunitarios</title>
+    
+    <link rel="stylesheet" href="css/styles-disenoReporte.css" type="text/css" media="all" />
+</head>
+<body>
+    <header>
+
+        <div class="info-header">
+            <h1>Informe Mensual Comedor <span id="nombreComedor"></span></h1>
+            <p>Fecha: <span id="fechaActual"></span></p>
+        </div>
+    
+    
+        <div class="imagen-header">
+            <img class="imagenLogo" src="img/DIF_ATIZAPAN_LOGO.png" alt="Logo del DIF">
+        </div>
+    </header>
+
+
+    <hr>
+
+    <div class="seccion">
+        <h2 class="titulo-seccion">Ingresos</h2>
+        <div class="contenido-seccion">
+            <p>Ingresos totales: $<span id="ingresosTotales"></span></p>
+            <p>Ingresos promedio por día: $ <span id="ingresosPromedioDia"></span></p>
+            <p>Total de platillos vendidos: $ <span id="totalPlatillosVendidos"></span> </p>
+            <p>Total de platillos donados: $ -<span id="totalPlatillosDonados"></span> </p>
+        </div>
+    </div>
+
+    <div class="seccion">
+        <h2 class="titulo-seccion">Inventario</h2>
+        <div class="contenido-seccion">
+            
+            <table class="table table-bordered" id="tableInventarioReport">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Unidad de Medida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="seccion">
+        <h2 class="titulo-seccion">Participación de Usuarios</h2>
+        <div class="contenido-seccion">
+            <p>Total de usuarios que han asistido: <span id="usuariosAsistidos"></span> </p>
+            <p>Promedio de usuarios por día: <span id="usuariosAsistidosPromedio"></span> </p>
+        </div>
+    </div>
+
+    <div class="pie-pagina">
+        <p>¡Gracias por su apoyo continuo a nuestro comedor comunitario!</p>
+    </div>
+    
+    
+    
+    <script type="text/javascript" src="js/comedores/disenoReporte.js"></script>
+</body>
+</html>

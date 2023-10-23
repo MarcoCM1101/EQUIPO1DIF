@@ -1,0 +1,107 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+}
+
+header {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-header {
+    padding: 10px;
+    width: 400px;
+    margin-left: 0;
+}
+
+.imagen-header {
+    margin-right: 10px;
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.imagenLogo {
+    /* Cambiar el ancho de la imagen */
+    width: 150px; /* Puedes ajustar a tu necesidad */
+
+    /* Para mantener las proporciones, establece la altura a auto */
+    height: auto;
+
+    /* Si quieres que la imagen se muestre en el centro del div */
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #333;
+}
+p {
+    margin: 10px 0;
+}
+
+hr {
+    border: 1px solid #333;
+}
+
+.seccion {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.titulo-seccion {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    margin-top: 0;
+}
+
+.contenido-seccion {
+    margin-top: 10px;
+}
+
+/* Estilos base para la tabla */
+.table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para los encabezados de la tabla */
+.table thead th {
+    background-color: #4CAF50;  /* Color de fondo */
+    color: white;               /* Color de texto */
+    text-align: left;           /* Alineación de texto */
+    padding: 8px;               /* Espaciado interno */
+}
+
+/* Estilos para las celdas de la tabla */
+.table tbody td {
+    border: 1px solid #ddd;     /* Borde de celdas */
+    padding: 8px;               /* Espaciado interno */
+}
+
+/* Estilo al pasar el cursor por encima de las filas */
+.table tbody tr:hover {
+    background-color: #f5f5f5; /* Color de fondo */
+}
+
+/* Estilo para las celdas de las filas impares (para dar un efecto "zebra") */
+.table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Color de fondo */
+}
+
+
+.pie-pagina {
+    text-align: center;
+    margin-top: 20px;
+}

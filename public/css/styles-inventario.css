@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F5DEB3;
+}
+
+.container mt-3 {
+    margin: 10px 0px;
+}
+
+.table-custom {
+    overflow: auto;
+}
+
+/* Agrega un nuevo estilo para el botón personalizado */
+.btn-custom {
+    border: none;
+    background-color: #B9B8D3; /* Cambia este color al que desees */
+    color: black; /* Cambia el color del texto al que desees */
+    margin-top: 2px;
+}
+
+.table td {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}

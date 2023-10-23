@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles-anuncios.css">
+        <title>DIF Atizapán - Anuncios</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src= "js/main/main.js" defer></script>
+        <script src="js/logout.js" defer></script>
+        
+    
+    </head>
+    <body>
+        
+        <div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <img id="LogoDIF" src="img/DIF-Atizapan.jpg" alt="Logo DIF">
+                    <span id="TxtDIF">DIF Atizapán</span>
+                </div>
+                <i class="bx bx-menu" id="btn"></i>
+            </div>
+            <div class="user">
+                <img src="img/bxs-user-circle.svg" alt="UserIcon" class="user-icon">
+                <div>
+                    <p id="adminName" class="bold">Nombre de Usuario</p>
+                    <p id ="adminMail">Correo de Usuario</p>
+                    <p>Admin</p>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="/main.html">
+                        <i class="bx bxs-home"></i>
+                        <span class="nav-item">Inicio</span>
+                    </a>
+                    <span class="tooltip">Inicio</span>
+                </li>
+                <li>
+                    <a href="/comedores.html">
+                        <i class="bx bxs-bowl-hot"></i>
+                        <span class="nav-item">Comedores</span>
+                    </a>
+                    <span class="tooltip">Comedores</span>
+                </li>
+                <li>
+                    <a href="/anuncios.html">
+                        <i class="bx bxs-megaphone"></i>
+                        <span class="nav-item">Anuncios</span>
+                    </a>
+                    <span class="tooltip">Anuncios</span>
+                </li>
+                <li>
+                    <a href="#" id="logoutLink">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                    <span class="tooltip">Logout</span>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="main-content">
+            <header>
+            <div class="left"><h2>Comedores Comunitarios</h2></div>
+            <div class="right" id="time" style="font-size: 20px;"></div>
+            </header>
+    
+            <main class="bodyMain">
+                <div class="square-container">
+                    <h3>ANUNCIOS PUBLICADOS</h3>
+                    <br>
+                    <div class="anuncios-container">
+                        
+                        <table class="TablaAnuncios">
+                          <thead>
+                            <tr>
+                              <th>Título</th>
+                              <th>Descripción</th>
+                              <th>Estado</th>
+                            </tr>
+                          </thead>
+                          <tbody id="tablaAnuncio">
+                            
+                          </tbody>
+                        </table>
+                        
+                        <div class="containerEditarTableAnuncios">
+                            <button class="botonEditarTableAnuncios" id="botonEditarTableAnuncios">Editar Anuncios</button>
+                        </div>
+                        <div class="containerbtnEditarAnuncios">
+                            <button type="button" class="boton-cancelarEditAnuncio" id="btnCancelarEditAnuncio">Cancelar</button>
+                        
+                            <button type="submit" class="boton-submitEditAnuncio" id="btnSubmitEditAnuncio">Completado</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="agregar-anuncio">
+                    <button class="boton-agregarAnuncio" id="btnAgregarAnuncio" >Agregar Anuncio</button>
+                </div>
+                
+                <div class="containerAgregarAnuncio" id="containerAgregarAnuncio">
+                    <input type="text" name="Titulo" class="inputTitulo" placeholder="Titulo" id="inputTitulo" />
+                    <input type="text" name="Descripcion" class="inputDescripcion" placeholder="Descripción" id="inputDescripcion" />
+                    <select name="Estado" class="inputEstado" id="inputEstado">
+                        <option value="SeleccionaOpcion">Selecciona una opción</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                    
+                    <div class="containerbtnAgregarAnuncio">
+                        <button type="button" class="boton-cancelar" id="btnCancelar">Cancelar</button>
+                        
+                        <button type="submit" class="boton-submit">Enviar</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    
+    </body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="js/hora.js"></script>
+    <script type="text/javascript" src="js/anuncios/tablaSelect.js"></script>
+    <script type="text/javascript" src="js/anuncios/btnAgregarAnuncio.js"></script>
+    <script type="text/javascript" src="js/anuncios/tablaAnuncios.js"></script>
+    
+
+    <script>
+        let btn = document.querySelector('#btn')
+        let sidebar = document.querySelector('.sidebar')
+    
+        btn.onclick = function() {
+            sidebar.classList.toggle('active')
+        };
+    
+    </script>
+    
+</html>

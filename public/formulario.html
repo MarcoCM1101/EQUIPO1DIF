@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Evaluación</title>
+    
+    
+    <link rel="stylesheet" href="css/formulario.css">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/formulario/formulario.js"></script>
+</head>
+<body class="bg-dark">
+    <header class="Encabezado">
+        <div class="row align-items-center">
+            <div class="col-6 p-2">
+                <img class="img-fluid" src="img/DIF_ATIZAPAN_LOGO.png">
+            </div>
+            
+            <div class="col-6 p-2 text-center">
+                <h1 class="display-3 mt-3">Encuesta de Satisfacción</h1>
+            </div>
+        </div>
+    </header>
+    
+    <main class="mt-5 mt-lg-0 d-flex justify-content-center align-items-center">
+        <div class="container contenedor">
+            <h1 class="mt-5 titulo">Evaluación del Comedor</h1>
+            <div class="contenedorTextoCalif">
+                <p class="mt-5">1 = poco</p>
+                <p class="mt-5">5 = mucho</p>
+            </div>
+            <form method="post">
+                <div class="form-group mt-5">
+                    <label for="comedor">Selecciona el comedor:</label>
+                    <select class="form-control EligeComedor" id="comedor" name="comedor">
+                        <option value="">Elige un Comedor</option>
+                    </select>
+                </div>
+    
+                <div class="form-group mt-5">
+                    <label for="higiene">¿Cómo es la higiene en el lugar?</label>
+                    <div class="radio-container">
+                        <input type="radio" class="form-check-input" id="higiene1" name="higiene" value="1">
+                        <label class="custom-radio-label" for="higiene1">1</label>
+                
+                        <input type="radio" class="form-check-input" id="higiene2" name="higiene" value="2">
+                        <label class="custom-radio-label" for="higiene2">2</label>
+                
+                        <input type="radio" class="form-check-input" id="higiene3" name="higiene" value="3">
+                        <label class="custom-radio-label" for="higiene3">3</label>
+                
+                        <input type="radio" class="form-check-input" id="higiene4" name="higiene" value="4">
+                        <label class="custom-radio-label" for="higiene4">4</label>
+                
+                        <input type="radio" class="form-check-input" id="higiene5" name="higiene" value="5">
+                        <label class="custom-radio-label" for="higiene5">5</label>
+                    </div>
+                </div>
+    
+                <div class="form-group mt-5">
+                    <label for="atencion">¿Cómo es la atención en el lugar?</label>
+                    <div class="radio-container">
+                        <input type="radio" class="form-check-input" id="atencion1" name="atencion" value="1">
+                        <label class="custom-radio-label" for="atencion1">1</label>
+                
+                        <input type="radio" class="form-check-input" id="atencion2" name="atencion" value="2">
+                        <label class="custom-radio-label" for="atencion2">2</label>
+                
+                        <input type="radio" class="form-check-input" id="atencion3" name="atencion" value="3">
+                        <label class="custom-radio-label" for="atencion3">3</label>
+                
+                        <input type="radio" class="form-check-input" id="atencion4" name="atencion" value="4">
+                        <label class="custom-radio-label" for="atencion4">4</label>
+                
+                        <input type="radio" class="form-check-input" id="atencion5" name="atencion" value="5">
+                        <label class="custom-radio-label" for="atencion5">5</label>
+                    </div>
+                </div>
+                
+                <div class="form-group mt-5">
+                    <label for="comida">¿Cómo es la comida en el lugar?</label>
+                    <div class="radio-container">
+                        <input type="radio" class="form-check-input" id="comida1" name="comida" value="1">
+                        <label class="custom-radio-label" for="comida1">1</label>
+                
+                        <input type radio class="form-check-input" id="comida2" name="comida" value="2">
+                        <label class="custom-radio-label" for="comida2">2</label>
+                
+                        <input type="radio" class="form-check-input" id="comida3" name="comida" value="3">
+                        <label class="custom-radio-label" for="comida3">3</label>
+                
+                        <input type="radio" class="form-check-input" id="comida4" name="comida" value="4">
+                        <label class="custom-radio-label" for="comida4">4</label>
+                
+                        <input type="radio" class="form-check-input" id="comida5" name="comida" value="5">
+                        <label class="custom-radio-label" for="comida5">5</label>
+                    </div>
+                </div>
+
+    
+                <div class="form-group mt-5">
+                    <label for="comentarios">Comentarios:</label>
+                    <textarea class="form-control" id="comentarios" name="comentarios" rows="4"></textarea>
+                </div>
+    
+                <button type="submit" class="btn btn-primary mt-2 mb-3 custom-button gap-auto"><span class="display-4">Enviar</span></button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
